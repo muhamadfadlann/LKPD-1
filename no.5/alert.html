@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert</title>
+    <style>
+        .alert {
+            display: none;
+            padding: 20px;
+            background-color: red;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        /* Tambahkan gaya untuk tombol */
+        button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Gaya untuk tombol saat di-hover */
+        button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="showAlert()">Munculkan Alert</button>
+
+    <div id="alertBox" class="alert">
+        Danger! Alert akan tertutup dalam <span id="countdown">5</span> detik.
+    </div>
+
+    <script>
+        function showAlert() {
+            var countdown = 5;
+            var alertBox = document.getElementById("alertBox");
+            var countdownSpan = document.getElementById("countdown");
+
+            // Tampilkan alert
+            alertBox.style.display = "block";
+
+            // Jalankan countdown
+            var interval = setInterval(function() {
+                countdown--;
+                countdownSpan.textContent = countdown;
+
+                // Jika countdown selesai, sembunyikan alert
+                if (countdown === 0) {
+                    clearInterval(interval);
+                    alertBox.style.display = "none";
+                }
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>

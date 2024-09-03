@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Search</title>
+    <style>
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #message {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(82, 86, 82);
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        button:hover {
+            background-color: rgb(95, 97, 95);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <form onsubmit="return handleSubmit(event)">
+            <input type="text" id="searchInput" placeholder="Cari data...">
+            <button type="submit">Submit</button>
+        </form>
+        <p id="message">Tidak mencari data</p>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); 
+
+            var input = document.getElementById('searchInput').value.toUpperCase(); 
+            var message = document.getElementById('message');
+
+            if (input === 'ADEW') {
+                message.textContent = 'Mencari data adew.....';
+            } else {
+                message.textContent = 'Tidak mencari data';
+            }
+
+            return false; 
+        }
+    </script>
+
+</body>
+</html>
