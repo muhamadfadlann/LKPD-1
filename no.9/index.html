@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opsi Jawaban & Poin</title>
+    <style>
+        .option-container {
+            margin-bottom: 15px;
+        }
+        .option-container input {
+            width: 35%; /* Lebar form lebih pendek */
+            padding: 8px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        #addOptionBtn {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+            border: none;
+            background: none;
+            font-size: 14px;
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<form id="optionsForm">
+    <div id="optionsContainer">
+        <h4>Opsi Jawaban & poin</h4>
+        <div class="option-container">
+            <label>Opsi 1 :</label><br>
+            <input type="number" name="points[]" placeholder="poin" required>
+            <input type="text" name="description[]" placeholder="deskripsi opsi" required>
+        </div>
+        <div class="option-container">
+            <label>Opsi 2 :</label><br>
+            <input type="number" name="points[]" placeholder="poin" required>
+            <input type="text" name="description[]" placeholder="deskripsi opsi" required>
+        </div>
+        <div class="option-container">
+            <label>Opsi 3 :</label><br>
+            <input type="number" name="points[]" placeholder="poin" required>
+            <input type="text" name="description[]" placeholder="deskripsi opsi" required>
+        </div>
+    </div>
+    <button type="button" id="addOptionBtn">+tambah opsi</button>
+</form>
+
+<script>
+    let optionCount = 3;
+
+    document.getElementById('addOptionBtn').addEventListener('click', function() {
+        optionCount++;
+        const optionsContainer = document.getElementById('optionsContainer');
+
+        const newOptionContainer = document.createElement('div');
+        newOptionContainer.className = 'option-container';
+
+        const label = document.createElement('label');
+        label.textContent = `Opsi ${optionCount} :`;
+        
+        const lineBreak = document.createElement('br');
+        
+        const pointInput = document.createElement('input');
+        pointInput.type = 'number';
+        pointInput.name = 'points[]';
+        pointInput.placeholder = 'poin';
+        pointInput.required = true;
+
+        const descriptionInput = document.createElement('input');
+        descriptionInput.type = 'text';
+        descriptionInput.name = 'description[]';
+        descriptionInput.placeholder = 'deskripsi opsi';
+        descriptionInput.required = true;
+
+        newOptionContainer.appendChild(label);
+        newOptionContainer.appendChild(lineBreak);
+        newOptionContainer.appendChild(pointInput);
+        newOptionContainer.appendChild(descriptionInput);
+
+        optionsContainer.appendChild(newOptionContainer);
+    });
+</script>
+
+</body>
+</html>

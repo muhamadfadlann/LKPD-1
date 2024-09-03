@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: grid;
+            grid-template-areas:
+                "card-left card-right"
+                "card-bottom-left card-right"
+                "button button";
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 10px;
+            width: 80%;
+            height: 80%;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .card-left {
+            grid-area: card-left;
+        }
+        .card-right {
+            grid-area: card-right;
+            align-self: center; /* Center card-right vertically in its cell */
+        }
+        .card-bottom-left {
+            grid-area: card-bottom-left;
+        }
+        .button {
+            grid-area: button;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: center;
+            justify-self: center;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card card-left">
+            <h3>Card kiri</h3>
+            <p>jshfjnsjfnjsfbingung</p>
+        </div>
+        <div class="card card-right">
+            <h3>Card kanan</h3>
+            <p>lojwejbwjbuwe</p>
+        </div>
+        <div class="card card-bottom-left">
+            <h3>Card bawah kiri</h3>
+            <p>habfhbahkfbkbjhrfbbhsbfbsfbingunggngent.</p>
+        </div>
+        <button class="button">Daftar</button>
+    </div>
+</body>
+</html>
